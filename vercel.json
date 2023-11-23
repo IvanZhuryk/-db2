@@ -1,8 +1,5 @@
 {
     "version": 2,
-    "env": {
-        "POSTGRES_URL": "postgres://default:c1OoIujFPX3f@ep-broken-scene-07991297-pooler.eu-central-1.postgres.vercel-storage.com:5432/verceldb"
-    },
     "builds": [
         {
             "src": "src/main.ts",
