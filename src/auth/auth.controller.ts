@@ -29,7 +29,7 @@ export class AuthController {
     }
     @Get('refresh')
     async refreshTokens(@Cookie(REFRESH_TOKEN) refreshToken: string, @Res() res:Response){
-        if(refreshToken){
+        if(!refreshToken){
             throw new UnauthorizedException()
         }
         const tokens = await this.authService.refreshTokens(refreshToken);
