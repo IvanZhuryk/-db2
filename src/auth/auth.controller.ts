@@ -4,7 +4,9 @@ import { LoginDto } from './dto';
 import { Tokens } from './interfaces';
 import { Response } from 'express';
 import { ConfigService } from '@nestjs/config';
-import { Cookie } from './cookies.decorator';
+import { Cookie } from 'common/common/decorators';
+
+
 
 
 const REFRESH_TOKEN = 'refreshtoken';
