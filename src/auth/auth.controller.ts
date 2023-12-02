@@ -25,18 +25,18 @@ export class AuthController {
     @Post('login')
     async login(@Body() dto:LoginDto, @Res() res:Response, @UserAgent() agent:string){
 
-        const tokens = await this.authService.login(dto);
+        const tokens = await this.authService.login(dto, agent);
         if(!tokens) {
             throw new BadRequestException(`Не вдалось ввійти з даними ${JSON.stringify(dto)} `);
         }
         this.setRefreshTokenToCookies(tokens, res)
     }
     @Get('refresh')
-    async refreshTokens(@Cookie(REFRESH_TOKEN) refreshToken: string, @Res() res:Response){
+    async refreshTokens(@Cookie(REFRESH_TOKEN) refreshToken: string, @Res() res:Response, @UserAgent() agent:string){
         if(!refreshToken){
             throw new UnauthorizedException()
         }
-        const tokens = await this.authService.refreshTokens(refreshToken);
+        const tokens = await this.authService.refreshTokens(refreshToken,agent);
         if(!tokens){
             throw new UnauthorizedException()
         }
