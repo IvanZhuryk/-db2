@@ -33,6 +33,14 @@ model Token {
   @@map("tokens")
 }
 
+model Product {
+  id     String @id @default(uuid())
+  title  String
+  price  Int
+  weight Int
+  image  String
+}
+
 enum Role {
   ADMIN
   USER

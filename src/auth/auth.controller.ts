@@ -21,6 +21,7 @@ export class AuthController {
         if(!user){
             throw new BadRequestException(`Не вдалось зареєструвати користувача з даними ${JSON.stringify(dto)} `)
         }
+        return user;
     }
     @Post('login')
     async login(@Body() dto:LoginDto, @Res() res:Response, @UserAgent() agent:string){
