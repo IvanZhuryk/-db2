@@ -39,6 +39,9 @@ model Product {
   price  Int
   weight Int
   image  String
+  tipe   String
+
+  @@map("products")
 }
 
 enum Role {

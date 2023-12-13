@@ -18,8 +18,8 @@ export class UserService {
             }
         })
     }
-    findOne(idOrEmail:string) {
-        return this.prismaService.user.findFirst({where:{
+    async findOne(idOrEmail:string): Promise<User> {
+        return await this.prismaService.user.findFirst({where:{
             OR:[
                 {
                     id:idOrEmail

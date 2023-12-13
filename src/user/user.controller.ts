@@ -11,8 +11,9 @@ export class UserController {
         return this.userService.createUser(dto)
     }
     @Get(':idOrEmail')
-    findOneUser(@Param() idOrEmail:string) {
-        return this.userService.findOne(idOrEmail);
+    async findOneUser(@Param('idOrEmail') idOrEmail:string) {
+        const user = await this.userService.findOne(idOrEmail);
+        return user;
     }
     @Delete(':id')
     deletUser(@Param("id", ParseUUIDPipe) id:string) {
